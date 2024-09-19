@@ -56,7 +56,7 @@ const handleSubmit = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-            setExito(`Éxitazo!\nGracias, ${name}, por tomarte el tiempo.\nVuelve cuando quieras... `);
+            setExito(`Éxito al ingresar `);
             setName('');
             setEmail('');
             setMessage('');
