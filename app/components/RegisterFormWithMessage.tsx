@@ -27,23 +27,23 @@ const validate = () => {
     const newErrors = { name: "", email: "", message: "" };
 
     if (!name){
-        newErrors.name = "Un nombre es requerido";
+        newErrors.name = "Escribe tu nombre ";
         valid = false;
     }
 
     if (!email){
-        newErrors.email = "Un email es requerido";
+        newErrors.email = "Debes escribir tu correo ";
         valid = false;
     }else if(!/\S+@\S+\.\S+/.test(email)){
-        newErrors.email = "Un email es requerido";
+        newErrors.email = "<<Debes agregarle un @ ty .com>>>";
         valid = false;
     }
 
     if (!message) {
-        newErrors.message = "Debes ingresar un mensaje...";
+        newErrors.message = "Dale, deja tu mensaje";
         valid = false;
     } else if (message.length < 15) {
-        newErrors.message = "El mensaje debe contener al menos 15 letras";
+        newErrors.message = "bro, el mensaje debe contener al menos 15 letras";
         valid = false;
     }
 
@@ -56,11 +56,11 @@ const handleSubmit = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-            setExito(`Éxito al ingresar `);
+            setExito(`¡¡Perfecto!! \nTus datos se recibieron con éxito `);
             setName('');
             setEmail('');
             setMessage('');
-           
+            setErrors({});
         }, 2000);
     }
 };
@@ -98,7 +98,7 @@ return (
             <ActivityIndicator size="large" color="#FF0000" />
         ) : (
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-            <Text style={styles.buttondef}>|| Enviar ||</Text>
+            <Text style={styles.buttondef}> == ENVIAR == </Text>
         </TouchableOpacity>
         )}
         {exito ? <Text style={styles.Exito}>{exito}</Text> : null}
@@ -148,7 +148,7 @@ button: {
     justifyContent: 'center',
     marginTop: 10,
     shadowColor: '#000', 
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,                
